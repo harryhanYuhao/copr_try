@@ -1,22 +1,23 @@
+%global srcname copr_try
 ###############################################################################
 # Spec file for Utils
 ################################################################################
 # Configured to be built by user hhyh or other non-root user
 ################################################################################
 #
-Summary: Utility scripts for testing RPM creation
 Name: copr_try
-Version: 1.0.2
+Summary: Utility scripts for testing RPM creation
+Version: 1.0.3
 Release: 1
 License: GPLv3
-URL: http://www.both.org
+URL: https://github.com/harryhanYuhao/copr_try
 Group: System
-Packager: David Both
+Packager: Harry Han
 Requires: bash
 Requires: screen
 Requires: mc
 Requires: dmidecode
-BuildRoot: ~/rpmbuild/
+#BuildRoot: ~/rpmbuild/
 BuildArch: x86_64
 
 # Build with the following syntax:
@@ -55,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT/usr/local/bin
 rm -rf $RPM_BUILD_ROOT/usr/local/share/copr_try
 
 %changelog
+* Wed Feb 28 2024 Harry Yuhao Han <s2162783@ed.ac.uk> 1.0.3-1
+- 
+
 * Wed Feb 28 2024 Harry Yuhao Han <s2162783@ed.ac.uk> 1.0.2-1
 - init (s2162783@ed.ac.uk)
 
