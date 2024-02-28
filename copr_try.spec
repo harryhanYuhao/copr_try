@@ -7,7 +7,7 @@
 #
 Name: copr_try
 Summary: Utility scripts for testing RPM creation
-Version: 1.0.3
+Version: 1.0.4
 Release: 1
 License: GPLv3
 URL: https://github.com/harryhanYuhao/copr_try
@@ -17,7 +17,7 @@ Requires: bash
 Requires: screen
 Requires: mc
 Requires: dmidecode
-#BuildRoot: ~/rpmbuild/
+BuildRoot: ~/rpmbuild/
 BuildArch: x86_64
 
 # Build with the following syntax:
@@ -35,15 +35,13 @@ echo "BUILDROOT = $RPM_BUILD_ROOT"
 mkdir -p $RPM_BUILD_ROOT/usr/local/bin/
 mkdir -p $RPM_BUILD_ROOT/usr/local/share/copr_try
 
-cp /home/hhyh/biblioteca/copr_try/src/* $RPM_BUILD_ROOT/usr/local/bin
-cp /home/hhyh/biblioteca/copr_try/LICENSE $RPM_BUILD_ROOT/usr/local/share/copr_try
-cp /home/hhyh/biblioteca/copr_try/copr_try.spec $RPM_BUILD_ROOT/usr/local/share/copr_try
+cp /home/hhyh/biblioteca/copr_try/src/mymotd $RPM_BUILD_ROOT%{_bindir}/
 
 exit
 
 %files
-%attr(0744, root, root) /usr/local/bin/*
-%attr(0644, root, root) /usr/local/share/copr_try/*
+%license LICENSE
+%attr(0744, root, root) %{_bindir}/mymotd
 
 %pre
 
@@ -52,10 +50,12 @@ exit
 %postun
 
 %clean
-rm -rf $RPM_BUILD_ROOT/usr/local/bin
-rm -rf $RPM_BUILD_ROOT/usr/local/share/copr_try
+rm -rf $RPM_BUILD_ROOT%{_bindir}
 
 %changelog
+* Wed Feb 28 2024 Harry Yuhao Han <s2162783@ed.ac.uk> 1.0.4-1
+- Add license, rm unnessary files
+
 * Wed Feb 28 2024 Harry Yuhao Han <s2162783@ed.ac.uk> 1.0.3-1
 - 
 
