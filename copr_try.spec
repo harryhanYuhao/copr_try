@@ -6,7 +6,7 @@
 #
 Summary: Utility scripts for testing RPM creation
 Name: copr_try
-Version: 1.0.1
+Version: 1.0.0
 Release: 1
 License: GPLv3
 URL: http://www.both.org
@@ -17,6 +17,7 @@ Requires: screen
 Requires: mc
 Requires: dmidecode
 BuildRoot: ~/rpmbuild/
+BuildArch: x86_64
 
 # Build with the following syntax:
 # rpmbuild --target noarch -bb utils.spec
@@ -54,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT/usr/local/bin
 rm -rf $RPM_BUILD_ROOT/usr/local/share/copr_try
 
 %changelog
+* Wed Feb 28 2024 Harry Yuhao Han <s2162783@ed.ac.uk> 1.0.0-1
+- Init
+
 * Wed Feb 28 2024 Harry Yuhao Han <s2162783@ed.ac.uk> 1.0.1-1
 - new package built with tito
 
